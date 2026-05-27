@@ -19,13 +19,23 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Tempus Solutions: IT Built for the Trades',
+      },
+      {
+        name: 'description',
+        content:
+          'Business technology modernization for HVAC, roofing, electrical, and plumbing companies. Transparent pricing, flexible plans, scalable solutions.',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/tempus-dark-icon.svg',
       },
     ],
   }),
@@ -39,7 +49,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
+      <body className="font-sans antialiased wrap-anywhere selection:bg-[rgba(251,191,36,0.3)]">
         <Header />
         {children}
         <Footer />
