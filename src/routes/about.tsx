@@ -180,7 +180,7 @@ function AboutPage() {
         </p>
         <div className="relative flex flex-wrap justify-center gap-3">
           <a
-            href="mailto:hello@tempussolutions.io"
+            href="mailto:info@tempussolutions.io"
             className="inline-flex items-center gap-2 rounded-full bg-[#b45309] px-7 py-3 text-sm font-bold text-white no-underline shadow-[0_10px_28px_rgba(180,83,9,0.35)] transition hover:-translate-y-0.5 hover:opacity-90"
           >
             Book a Free Call <ArrowRight size={15} />

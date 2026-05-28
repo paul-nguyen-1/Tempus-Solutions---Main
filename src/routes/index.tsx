@@ -318,7 +318,7 @@ function HomePage() {
           goals.
         </p>
         <a
-          href="mailto:hello@tempussolutions.io"
+          href="mailto:info@tempussolutions.io"
           className="relative inline-flex items-center gap-2 rounded-full bg-[#b45309] px-8 py-3.5 text-sm font-bold text-white no-underline shadow-[0_10px_32px_rgba(180,83,9,0.38)] transition hover:-translate-y-0.5 hover:opacity-90"
         >
           Book a Free Consultation <ArrowRight size={15} />

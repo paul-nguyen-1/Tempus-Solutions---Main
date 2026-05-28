@@ -71,10 +71,10 @@ export default function Footer() {
             &copy; {year} Tempus Solutions. All rights reserved.
           </p>
           <a
-            href="mailto:hello@tempussolutions.io"
+            href="mailto:info@tempussolutions.io"
             className="text-(--lagoon-deep) no-underline hover:underline"
           >
-            hello@tempussolutions.io
+            info@tempussolutions.io
           </a>
         </div>
       </div>

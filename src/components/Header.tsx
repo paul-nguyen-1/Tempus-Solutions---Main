@@ -49,7 +49,7 @@ export default function Header() {
 
         <div className="ml-auto flex items-center gap-2">
           <a
-            href="mailto:hello@tempussolutions.io"
+            href="mailto:info@tempussolutions.io"
             className="hidden items-center rounded-full border border-[rgba(180,83,9,0.3)] bg-[rgba(245,158,11,0.1)] px-4 py-1.5 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(245,158,11,0.18)] sm:inline-flex"
           >
             Get in Touch

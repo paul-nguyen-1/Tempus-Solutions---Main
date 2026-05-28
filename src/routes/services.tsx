@@ -167,7 +167,7 @@ function ServicesPage() {
                 </ul>
 
                 <a
-                  href="mailto:hello@tempussolutions.io"
+                  href="mailto:info@tempussolutions.io"
                   className="mt-auto inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-white no-underline transition hover:-translate-y-0.5 hover:opacity-90"
                   style={{ background: tier.ctaBg, boxShadow: tier.ctaShadow }}
                 >
@@ -214,7 +214,7 @@ function ServicesPage() {
           business is right now.
         </p>
         <a
-          href="mailto:hello@tempussolutions.io"
+          href="mailto:info@tempussolutions.io"
           className="relative inline-flex items-center gap-2 rounded-full bg-[#b45309] px-8 py-3 text-sm font-bold text-white no-underline shadow-[0_10px_28px_rgba(180,83,9,0.35)] transition hover:-translate-y-0.5 hover:opacity-90"
         >
           Book Free Consultation <ArrowRight size={15} />
