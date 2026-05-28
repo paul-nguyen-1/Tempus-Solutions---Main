@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import config from '../config/services.json'
 import { SERVICE_ICONS } from '../config/icons'
+import { getConsultationMailto, getServiceMailto } from '../utils/mailto'
 
 export const Route = createFileRoute('/services')({ component: ServicesPage })
 
@@ -54,7 +55,7 @@ function ServicesPage() {
                     <p className="text-sm font-bold text-(--sea-ink)">{service.price}</p>
                   </div>
                   <a
-                    href="mailto:info@tempussolutions.io"
+                    href={getServiceMailto(service.name, service.price)}
                     className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(180,83,9,0.28)] bg-[rgba(245,158,11,0.1)] px-4 py-2 text-xs font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(245,158,11,0.16)]"
                   >
                     Get Started <ArrowRight size={12} />
@@ -96,7 +97,7 @@ function ServicesPage() {
           {config.cta.subtitle}
         </p>
         <a
-          href="mailto:info@tempussolutions.io"
+          href={getConsultationMailto()}
           className="relative inline-flex items-center gap-2 rounded-full bg-[#b45309] px-8 py-3 text-sm font-bold text-white no-underline shadow-[0_10px_28px_rgba(180,83,9,0.35)] transition hover:-translate-y-0.5 hover:opacity-90"
         >
           {config.cta.buttonText} <ArrowRight size={15} />

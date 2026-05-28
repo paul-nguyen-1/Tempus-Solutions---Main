@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import Logo from './Logo'
+import { getConsultationMailto } from '../utils/mailto'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -71,7 +72,7 @@ export default function Footer() {
             &copy; {year} Tempus Solutions. All rights reserved.
           </p>
           <a
-            href="mailto:info@tempussolutions.io"
+            href={getConsultationMailto()}
             className="text-(--lagoon-deep) no-underline hover:underline"
           >
             info@tempussolutions.io
