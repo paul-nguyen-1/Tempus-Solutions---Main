@@ -1,100 +1,140 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Shield, TrendingUp, Cpu, CheckCircle, ArrowRight } from 'lucide-react'
+import {
+  Globe,
+  Mail,
+  Users,
+  Calendar,
+  BarChart2,
+  Target,
+  RefreshCw,
+  Star,
+  Headphones,
+  CheckCircle,
+  ArrowRight,
+} from 'lucide-react'
 
 export const Route = createFileRoute('/services')({ component: ServicesPage })
 
-interface ServiceTier {
+interface Service {
   id: string
   name: string
-  subtitle: string
-  tagline: string
-  audience: string
+  description: string
+  price: string
   icon: React.ElementType
-  features: string[]
   accentBg: string
   accentBorder: string
   accentColor: string
-  ctaBg: string
-  ctaShadow: string
-  highlight: boolean
 }
 
-const TIERS: ServiceTier[] = [
+const SERVICES: Service[] = [
   {
-    id: 'foundation',
-    name: 'Secure & Support',
-    subtitle: 'Tier 1: The Foundation',
-    tagline: 'IT that just works, secure, supported, and predictable.',
-    audience:
-      'For businesses that want their technology to run reliably without managing it themselves.',
-    icon: Shield,
-    features: [
-      'Managed Business Email (custom domain)',
-      'Cloud Storage & Automated Backup',
-      'Cybersecurity Protection & Monitoring',
-      'Helpdesk Support (email & phone)',
-    ],
+    id: 'website',
+    name: 'Website Creation',
+    description:
+      'Custom business website with mobile optimization, lead capture forms, and contact integration.',
+    price: '$1,500 – $2,000',
+    icon: Globe,
     accentBg: 'rgba(245,158,11,0.1)',
     accentBorder: 'rgba(180,83,9,0.22)',
     accentColor: 'var(--lagoon-deep)',
-    ctaBg: '#b45309',
-    ctaShadow: '0 8px 22px rgba(180,83,9,0.32)',
-    highlight: false,
   },
   {
-    id: 'grow',
-    name: 'Grow & Operate',
-    subtitle: 'Tier 2: The Mid-Tier',
-    tagline: 'Capture more customers and run your operations smarter.',
-    audience:
-      'For businesses trying to grow their local market share and streamline their sales process.',
-    icon: TrendingUp,
-    features: [
-      'Everything in Tier 1',
-      'CRM Setup & Ongoing Management',
-      'POS Integration & Support',
-      'Website Optimization & Maintenance',
-      'Google Business Profile Management',
-      'Local SEO Setup',
-    ],
-    accentBg: 'rgba(180,83,9,0.1)',
-    accentBorder: 'rgba(146,64,14,0.22)',
+    id: 'email',
+    name: 'Business Email',
+    description:
+      'Microsoft 365 or Google Workspace setup with domain email configuration.',
+    price: '$250 – $500',
+    icon: Mail,
+    accentBg: 'rgba(180,83,9,0.08)',
+    accentBorder: 'rgba(180,83,9,0.18)',
     accentColor: 'var(--palm)',
-    ctaBg: '#92400e',
-    ctaShadow: '0 8px 22px rgba(146,64,14,0.35)',
-    highlight: true,
   },
   {
-    id: 'automate',
-    name: 'Automate & Scale',
-    subtitle: 'Tier 3: The Premium Tier',
-    tagline: 'AI-powered workflows and real-time data insights.',
-    audience:
-      'For businesses ready to compete at scale with intelligent automation and live analytics.',
-    icon: Cpu,
-    features: [
-      'Everything in Tiers 1 & 2',
-      'Custom AI Workflow Design & Build',
-      'Real-Time Analytics Dashboards',
-      'End-to-End Process Automation',
-      'Monthly Strategy & Performance Review',
-    ],
+    id: 'crm',
+    name: 'CRM Setup',
+    description:
+      'CRM implementation, customer pipeline setup, lead tracking organization, and workflow onboarding.',
+    price: '$1,000 – $2,000',
+    icon: Users,
+    accentBg: 'rgba(245,158,11,0.1)',
+    accentBorder: 'rgba(180,83,9,0.22)',
+    accentColor: 'var(--lagoon-deep)',
+  },
+  {
+    id: 'scheduling',
+    name: 'Scheduling Implementation',
+    description:
+      'Scheduling software setup, calendar syncing, automated reminders, dispatch workflow setup, and booking optimization.',
+    price: '$1,000 – $2,000',
+    icon: Calendar,
+    accentBg: 'rgba(180,83,9,0.08)',
+    accentBorder: 'rgba(180,83,9,0.18)',
+    accentColor: 'var(--palm)',
+  },
+  {
+    id: 'analytics',
+    name: 'Dashboard Analytics',
+    description:
+      'Custom business dashboards for leads, sales, jobs, reviews, and operational KPIs.',
+    price: '$1,000 – $2,000',
+    icon: BarChart2,
+    accentBg: 'rgba(245,158,11,0.1)',
+    accentBorder: 'rgba(180,83,9,0.22)',
+    accentColor: 'var(--lagoon-deep)',
+  },
+  {
+    id: 'lead-capture',
+    name: 'Lead Capture Automation',
+    description:
+      'Automated web forms, missed call text back setup, customer intake workflows, and notification systems.',
+    price: '$1,000 – $2,000',
+    icon: Target,
+    accentBg: 'rgba(180,83,9,0.08)',
+    accentBorder: 'rgba(180,83,9,0.18)',
+    accentColor: 'var(--palm)',
+  },
+  {
+    id: 'followup',
+    name: 'Follow Up Automation',
+    description:
+      'Automated follow ups, estimate reminders, customer communication workflows, and operational automations.',
+    price: '$1,000 – $2,000',
+    icon: RefreshCw,
+    accentBg: 'rgba(245,158,11,0.1)',
+    accentBorder: 'rgba(180,83,9,0.22)',
+    accentColor: 'var(--lagoon-deep)',
+  },
+  {
+    id: 'reviews',
+    name: 'Review Management',
+    description:
+      'Automated Google review requests and customer follow-up workflows to build your online reputation.',
+    price: '$1,000 – $2,000',
+    icon: Star,
+    accentBg: 'rgba(180,83,9,0.08)',
+    accentBorder: 'rgba(180,83,9,0.18)',
+    accentColor: 'var(--palm)',
+  },
+  {
+    id: 'support',
+    name: 'Subscription Support',
+    description:
+      'Ongoing support, workflow adjustments, troubleshooting, software management, and optimization.',
+    price: '$99 – $500 / mo',
+    icon: Headphones,
     accentBg: 'rgba(28,25,23,0.08)',
     accentBorder: 'rgba(28,25,23,0.18)',
     accentColor: 'var(--sea-ink)',
-    ctaBg: '#292524',
-    ctaShadow: '0 8px 22px rgba(28,25,23,0.28)',
-    highlight: false,
   },
 ]
 
 const BASE_INCLUSIONS = [
-  'Dedicated account manager',
-  'Full onboarding & setup support',
-  'Month-to-month flexibility',
-  'Email & phone support',
-  'No long-term contracts required',
   'Free initial consultation',
+  'Full onboarding & setup support',
+  'Dedicated point of contact',
+  'Clear project timeline',
+  'No long-term contracts required',
+  'Transparent, flat-rate pricing',
 ]
 
 function ServicesPage() {
@@ -104,75 +144,56 @@ function ServicesPage() {
         <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.22),transparent_66%)]" />
         <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(180,83,9,0.14),transparent_66%)]" />
 
-        <p className="island-kicker relative mb-4">Plans &amp; Pricing</p>
+        <p className="island-kicker relative mb-4">Services &amp; Pricing</p>
         <h1 className="display-title relative mb-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-(--sea-ink) sm:text-5xl">
-          Plans designed for your stage of growth.
+          Pick exactly what your business needs.
         </h1>
         <p className="relative max-w-2xl text-base leading-7 text-(--sea-ink-soft) sm:text-lg">
-          Every plan is built to flex with your business. Start with the essentials and layer in
-          more capability as your team and revenue grow. No lock-in. No surprises.
+          No bundles. No bloated packages. Choose the services that solve your actual
+          problems and add more when you're ready. Everything comes with flat-rate
+          pricing and no surprises.
         </p>
       </section>
 
       <section className="mt-10">
-        <div className="grid gap-6 sm:grid-cols-3">
-          {TIERS.map((tier, i) => {
-            const Icon = tier.icon
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service, i) => {
+            const Icon = service.icon
             return (
               <article
-                key={tier.id}
-                className="island-shell rise-in relative flex flex-col overflow-hidden rounded-2xl p-7"
-                style={{ animationDelay: `${i * 110 + 100}ms` }}
+                key={service.id}
+                className="island-shell rise-in flex flex-col rounded-2xl p-6"
+                style={{ animationDelay: `${i * 60 + 100}ms` }}
               >
-                {tier.highlight && (
-                  <div className="absolute inset-x-0 top-0 h-0.5 bg-[linear-gradient(90deg,var(--lagoon),var(--palm))]" />
-                )}
-
                 <div
-                  className="mb-5 inline-flex w-fit rounded-2xl p-3"
+                  className="mb-4 inline-flex w-fit rounded-xl p-2.5"
                   style={{
-                    background: tier.accentBg,
-                    border: `1px solid ${tier.accentBorder}`,
+                    background: service.accentBg,
+                    border: `1px solid ${service.accentBorder}`,
                   }}
                 >
-                  <Icon size={22} style={{ color: tier.accentColor }} />
+                  <Icon size={20} style={{ color: service.accentColor }} />
                 </div>
 
-                <p
-                  className="island-kicker mb-1.5"
-                  style={{ color: tier.highlight ? 'var(--palm)' : tier.accentColor }}
-                >
-                  {tier.highlight ? '★ Most Popular' : tier.subtitle}
+                <h2 className="mb-2 text-base font-semibold text-(--sea-ink)">
+                  {service.name}
+                </h2>
+                <p className="mb-5 flex-1 text-sm leading-6 text-(--sea-ink-soft)">
+                  {service.description}
                 </p>
 
-                <h2 className="mb-2 text-xl font-semibold text-(--sea-ink)">{tier.name}</h2>
-
-                <p className="mb-2 text-sm font-medium text-(--sea-ink-soft)">{tier.tagline}</p>
-
-                <p className="mb-6 text-xs leading-5 text-(--sea-ink-soft) opacity-75">
-                  {tier.audience}
-                </p>
-
-                <ul className="mb-8 flex-1 space-y-3">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm text-(--sea-ink-soft)">
-                      <CheckCircle
-                        size={15}
-                        className="mt-0.5 shrink-0"
-                        style={{ color: 'var(--lagoon-deep)' }}
-                      />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="mailto:info@tempussolutions.io"
-                  className="mt-auto inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-white no-underline transition hover:-translate-y-0.5 hover:opacity-90"
-                  style={{ background: tier.ctaBg, boxShadow: tier.ctaShadow }}
-                >
-                  Get Started <ArrowRight size={14} />
-                </a>
+                <div className="flex items-center justify-between border-t border-(--line) pt-4">
+                  <div>
+                    <p className="island-kicker mb-0.5 text-[10px]">Starting at</p>
+                    <p className="text-sm font-bold text-(--sea-ink)">{service.price}</p>
+                  </div>
+                  <a
+                    href="mailto:info@tempussolutions.io"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(180,83,9,0.28)] bg-[rgba(245,158,11,0.1)] px-4 py-2 text-xs font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(245,158,11,0.16)]"
+                  >
+                    Get Started <ArrowRight size={12} />
+                  </a>
+                </div>
               </article>
             )
           })}
@@ -184,7 +205,7 @@ function ServicesPage() {
           <div className="shrink-0 sm:max-w-56">
             <p className="island-kicker mb-1.5">Always Included</p>
             <h2 className="display-title text-2xl font-bold text-(--sea-ink)">
-              Every plan comes with the basics done right.
+              Every project starts on the right foot.
             </h2>
           </div>
           <ul className="m-0 grid flex-1 gap-3 p-0 sm:grid-cols-2">
@@ -210,8 +231,8 @@ function ServicesPage() {
           Let's figure it out together.
         </h2>
         <p className="relative mx-auto mb-7 max-w-sm text-sm leading-6 text-(--sea-ink-soft)">
-          Book a free 30-minute consultation and we'll map out the right plan for where your
-          business is right now.
+          Book a free 30-minute consultation and we'll map out the right services for
+          where your business is right now.
         </p>
         <a
           href="mailto:info@tempussolutions.io"

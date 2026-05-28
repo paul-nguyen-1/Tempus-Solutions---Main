@@ -4,6 +4,11 @@ import {
   Home as HomeIcon,
   Zap,
   Droplets,
+  Leaf,
+  HardHat,
+  Grid2X2,
+  DoorOpen,
+  Building2,
   CheckCircle,
   ArrowRight,
 } from 'lucide-react'
@@ -19,7 +24,7 @@ interface Industry {
   tagline: string
   challenges: string[]
   solutions: string[]
-  recommendedTier: string
+  recommendedServices: string
   accentBg: string
   accentBorder: string
 }
@@ -40,11 +45,11 @@ const INDUSTRIES: Industry[] = [
     ],
     solutions: [
       'CRM setup for organized lead tracking & pipeline visibility',
-      'Automated follow-up email sequences after every inquiry',
+      'Automated follow-up sequences after every inquiry',
       'Scheduling software integration to eliminate conflicts',
       'Digital estimate tools for faster, professional quotes',
     ],
-    recommendedTier: 'Grow & Operate',
+    recommendedServices: 'CRM Setup + Scheduling Implementation',
     accentBg: 'rgba(245,158,11,0.08)',
     accentBorder: 'rgba(180,83,9,0.2)',
   },
@@ -63,11 +68,11 @@ const INDUSTRIES: Industry[] = [
     ],
     solutions: [
       'Organized CRM with full pipeline visibility from lead to invoice',
-      'Document management system for insurance claim workflows',
+      'Document management for insurance claim workflows',
       'Google Business Profile optimization for local search',
       'Automated post-job review request sequences',
     ],
-    recommendedTier: 'Grow & Operate',
+    recommendedServices: 'CRM Setup + Review Management',
     accentBg: 'rgba(120,113,108,0.1)',
     accentBorder: 'rgba(120,113,108,0.2)',
   },
@@ -90,7 +95,7 @@ const INDUSTRIES: Industry[] = [
       'Digital estimate tools for fast, polished quotes',
       'Automated appointment reminders to cut no-shows',
     ],
-    recommendedTier: 'Secure & Support',
+    recommendedServices: 'Website Creation + Business Email',
     accentBg: 'rgba(245,158,11,0.07)',
     accentBorder: 'rgba(180,83,9,0.18)',
   },
@@ -108,14 +113,129 @@ const INDUSTRIES: Industry[] = [
       'No system for customer follow-up after a job',
     ],
     solutions: [
-      'Smart call routing for after-hours and emergency coverage',
+      'Lead capture automation and missed call text-back',
       'Online booking integration to capture after-hours demand',
       'Automated review request system sent after every job',
       'Simple CRM your team will actually stick with',
     ],
-    recommendedTier: 'Grow & Operate',
+    recommendedServices: 'Lead Capture Automation + CRM Setup',
     accentBg: 'rgba(245,158,11,0.07)',
     accentBorder: 'rgba(180,83,9,0.18)',
+  },
+  {
+    id: 'landscaping',
+    name: 'Landscaping',
+    icon: Leaf,
+    tagline:
+      'Landscaping companies deal with seasonal swings, crew coordination, and property-by-property schedules that paper and phone calls cannot keep up with.',
+    challenges: [
+      'Managing crew schedules across multiple job sites',
+      'Losing bids to faster-responding competitors',
+      'No system for managing recurring client contracts',
+      'Weak online presence in a saturated local market',
+      'Manual invoicing eating up admin time',
+    ],
+    solutions: [
+      'CRM for tracking recurring clients and service contracts',
+      'Automated estimate follow-ups and contract renewals',
+      'Scheduling software for crew dispatch and job routing',
+      'Website with before/after portfolio and lead capture forms',
+    ],
+    recommendedServices: 'CRM Setup + Scheduling Implementation',
+    accentBg: 'rgba(34,197,94,0.08)',
+    accentBorder: 'rgba(22,163,74,0.2)',
+  },
+  {
+    id: 'restoration',
+    name: 'Restoration',
+    icon: HardHat,
+    tagline:
+      'Restoration contractors work in high-urgency, insurance-driven jobs where speed, documentation, and follow-through determine whether you win or lose.',
+    challenges: [
+      'Managing insurance claim documentation and workflows',
+      "Losing leads who don't hear back fast enough",
+      'No centralized system for job photos and scopes',
+      'Coordination breakdowns between field and office',
+      'Inconsistent review collection after jobs close',
+    ],
+    solutions: [
+      'Lead capture automation to respond instantly to inquiries',
+      'CRM for tracking jobs from inspection to final payment',
+      'Follow-up automation for estimate conversions',
+      'Automated review requests after job completion',
+    ],
+    recommendedServices: 'Lead Capture Automation + CRM Setup',
+    accentBg: 'rgba(120,113,108,0.1)',
+    accentBorder: 'rgba(120,113,108,0.2)',
+  },
+  {
+    id: 'fencing',
+    name: 'Fencing',
+    icon: Grid2X2,
+    tagline:
+      'Fencing is a high-competition local market where the first company to respond and look professional usually wins the job.',
+    challenges: [
+      'Slow response time losing installs to competitors',
+      'No organized quote-to-job tracking system',
+      'Weak digital presence in a competitive local market',
+      'Manual scheduling causing crew conflicts',
+      'No automated follow-up on open estimates',
+    ],
+    solutions: [
+      'Lead capture automation with fast-response workflows',
+      'CRM for tracking estimates and converting leads',
+      'Website with project gallery and quote request forms',
+      'Automated estimate follow-up reminders',
+    ],
+    recommendedServices: 'Website Creation + Lead Capture Automation',
+    accentBg: 'rgba(245,158,11,0.07)',
+    accentBorder: 'rgba(180,83,9,0.18)',
+  },
+  {
+    id: 'garage-door',
+    name: 'Garage Door',
+    icon: DoorOpen,
+    tagline:
+      'Garage door companies win on speed and availability. Businesses that cannot capture emergency calls around the clock are handing that revenue to competitors.',
+    challenges: [
+      'Missing after-hours and emergency service calls',
+      'No automated follow-up on maintenance leads',
+      'Manual scheduling causing delays and gaps',
+      'Relying on word-of-mouth instead of Google reviews',
+      'No website capturing organic search traffic',
+    ],
+    solutions: [
+      'Missed call text-back and lead capture automation',
+      'Scheduling software with 24/7 online booking',
+      'Automated review request sequences after every job',
+      'Website with emergency service CTA and local SEO',
+    ],
+    recommendedServices: 'Lead Capture Automation + Scheduling Implementation',
+    accentBg: 'rgba(245,158,11,0.07)',
+    accentBorder: 'rgba(180,83,9,0.18)',
+  },
+  {
+    id: 'foundation',
+    name: 'Foundation Repair',
+    icon: Building2,
+    tagline:
+      'Foundation repair is a high-ticket, trust-heavy sale. Homeowners do their research, and your online credibility and speed of response determine who gets the job.',
+    challenges: [
+      'Long sales cycles with no structured follow-up system',
+      'Homeowners comparing multiple quotes without deciding',
+      'No system for nurturing leads over weeks or months',
+      'Weak Google presence vs. larger regional competitors',
+      'Manual estimate processes slowing down the sales cycle',
+    ],
+    solutions: [
+      'CRM with long-cycle pipeline management and follow-up sequences',
+      'Automated estimate reminders and nurture workflows',
+      'Dashboard analytics to track leads, quotes, and close rates',
+      'Review automation to build credibility with new customers',
+    ],
+    recommendedServices: 'CRM Setup + Follow Up Automation',
+    accentBg: 'rgba(120,113,108,0.1)',
+    accentBorder: 'rgba(120,113,108,0.2)',
   },
 ]
 
@@ -131,9 +251,9 @@ function IndustriesPage() {
           We speak your language.
         </h1>
         <p className="relative max-w-2xl text-base leading-7 text-(--sea-ink-soft) sm:text-lg">
-          We built Tempus Solutions around the realities of trade and service
-          businesses. That means we already understand your workflow, your
-          seasonal pressure, and your customer expectations before we ever talk.
+          We built Tempus Solutions around the realities of home service businesses. That
+          means we already understand your workflow, your seasonal pressure, and your
+          customer expectations before we ever talk.
         </p>
       </section>
 
@@ -144,7 +264,7 @@ function IndustriesPage() {
             <article
               key={industry.id}
               className="island-shell rise-in flex flex-col rounded-2xl p-7"
-              style={{ animationDelay: `${i * 100 + 100}ms` }}
+              style={{ animationDelay: `${i * 80 + 100}ms` }}
             >
               <div className="mb-5 flex items-center gap-3">
                 <div
@@ -201,16 +321,16 @@ function IndustriesPage() {
 
               <div className="mt-auto flex items-center justify-between border-t border-(--line) pt-5">
                 <div>
-                  <p className="island-kicker mb-0.5">Recommended Plan</p>
+                  <p className="island-kicker mb-0.5">Recommended Services</p>
                   <p className="m-0 text-sm font-semibold text-(--sea-ink)">
-                    {industry.recommendedTier}
+                    {industry.recommendedServices}
                   </p>
                 </div>
                 <Link
                   to="/services"
                   className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(180,83,9,0.28)] bg-[rgba(245,158,11,0.1)] px-4 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(245,158,11,0.16)]"
                 >
-                  View Plans <ArrowRight size={13} />
+                  View Pricing <ArrowRight size={13} />
                 </Link>
               </div>
             </article>
@@ -221,16 +341,13 @@ function IndustriesPage() {
       <section className="island-shell relative mt-10 overflow-hidden rounded-4xl px-6 py-12 text-center sm:px-12">
         <div className="pointer-events-none absolute -left-16 -top-16 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.16),transparent_66%)]" />
 
-        <p className="island-kicker relative mb-3">
-          Your Industry, Our Expertise
-        </p>
+        <p className="island-kicker relative mb-3">Your Industry, Our Expertise</p>
         <h2 className="display-title relative mb-4 text-2xl font-bold text-(--sea-ink) sm:text-3xl">
           Don't see your trade listed?
         </h2>
         <p className="relative mx-auto mb-7 max-w-sm text-sm leading-6 text-(--sea-ink-soft)">
-          We work with any service business that has operational pain points. If
-          you're running a lean team and feel like tech is holding you back,
-          let's talk.
+          We work with any home service business that has operational pain points. If
+          you're running a lean team and feel like tech is holding you back, let's talk.
         </p>
         <a
           href="mailto:info@tempussolutions.io"
