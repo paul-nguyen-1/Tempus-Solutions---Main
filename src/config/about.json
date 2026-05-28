@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "kicker": "About Tempus Solutions",
+    "title": "Technology that works as hard as you do.",
+    "subtitle": "We believe every small business deserves the same quality of technology infrastructure that the big players have, without the corporate price tag or the confusing jargon."
+  },
+  "story": {
+    "kicker": "Our Story",
+    "title": "We saw the gap. We decided to close it.",
+    "col1": "We kept seeing the same problem: small service businesses like HVAC contractors, roofers, electricians, and plumbers were either overpaying for IT they didn't understand, or running critical operations on personal Gmail accounts, Excel spreadsheets, and a collection of disconnected apps.",
+    "col2a": "Meanwhile, the technology that could genuinely help them (organized CRM pipelines, automated follow-ups, professional email, optimized Google listings) was either buried behind complex enterprise software or priced for companies ten times their size.",
+    "col2b": "Tempus Solutions exists to change that. Through smart tooling and AI-assisted operations, we deliver real IT infrastructure to the businesses that need it most, at prices that actually make sense."
+  },
+  "mission": {
+    "kicker": "Our Mission",
+    "title": "In plain English",
+    "quote": "Business technology modernization for small and mid-sized businesses, through transparent pricing, flexibility, and scalable solutions."
+  },
+  "differentiators": {
+    "kicker": "What Makes Us Different",
+    "title": "Not your typical IT firm.",
+    "items": [
+      {
+        "icon": "target",
+        "title": "Built for Your Industry",
+        "desc": "We're not generalist IT consultants. We built Tempus around the trades such as HVAC, roofing, electrical, and plumbing, so we already understand your workflow before the first conversation.",
+        "accentBg": "rgba(245,158,11,0.1)",
+        "accentBorder": "rgba(180,83,9,0.22)"
+      },
+      {
+        "icon": "dollarSign",
+        "title": "Transparent Pricing",
+        "desc": "Every service is clearly scoped. You'll always know exactly what you're paying for, with no hidden fees, no long-term lock-in, and no surprise invoices at the end of the month.",
+        "accentBg": "rgba(120,113,108,0.1)",
+        "accentBorder": "rgba(120,113,108,0.22)"
+      },
+      {
+        "icon": "layers",
+        "title": "Scalable by Design",
+        "desc": "Start with what makes sense today and add more capability as your business grows, without switching providers or renegotiating contracts.",
+        "accentBg": "rgba(28,25,23,0.08)",
+        "accentBorder": "rgba(28,25,23,0.18)"
+      }
+    ]
+  },
+  "operations": {
+    "kicker": "How We Operate",
+    "title": "Low overhead. High value.",
+    "items": [
+      {
+        "title": "AI-Assisted Operations",
+        "desc": "We use AI tooling internally to keep our overhead low, which means we pass the savings on to you instead of charging enterprise-tier rates for the same work."
+      },
+      {
+        "title": "Month-to-Month Flexibility",
+        "desc": "No multi-year contracts. No cancellation penalties. If we're not delivering value, you can walk away. That's how we stay motivated to keep earning your business."
+      },
+      {
+        "title": "Personal Onboarding",
+        "desc": "Every new client gets a dedicated account manager and a full onboarding session. We don't hand you a login and disappear."
+      }
+    ]
+  },
+  "cta": {
+    "kicker": "Let's Work Together",
+    "title": "Start the conversation today.",
+    "subtitle": "A free 30-minute call is all it takes to figure out where we can make the biggest impact on your business.",
+    "primaryCta": "Book a Free Call",
+    "secondaryCta": "View Our Plans"
+  }
+}

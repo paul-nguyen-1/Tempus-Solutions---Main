@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "kicker": "Services & Pricing",
+    "title": "Pick exactly what your business needs.",
+    "subtitle": "No bundles. No bloated packages. Choose the services that solve your actual problems and add more when you're ready. Everything comes with flat-rate pricing and no surprises."
+  },
+  "items": [
+    {
+      "id": "website",
+      "icon": "globe",
+      "name": "Website Creation",
+      "description": "Custom business website with mobile optimization, lead capture forms, and contact integration.",
+      "price": "$1,500 – $2,000"
+    },
+    {
+      "id": "email",
+      "icon": "mail",
+      "name": "Business Email",
+      "description": "Microsoft 365 or Google Workspace setup with domain email configuration.",
+      "price": "$250 – $500"
+    },
+    {
+      "id": "crm",
+      "icon": "users",
+      "name": "CRM Setup",
+      "description": "CRM implementation, customer pipeline setup, lead tracking organization, and workflow onboarding.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "scheduling",
+      "icon": "calendar",
+      "name": "Scheduling Implementation",
+      "description": "Scheduling software setup, calendar syncing, automated reminders, dispatch workflow setup, and booking optimization.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "analytics",
+      "icon": "barChart",
+      "name": "Dashboard Analytics",
+      "description": "Custom business dashboards for leads, sales, jobs, reviews, and operational KPIs.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "lead-capture",
+      "icon": "target",
+      "name": "Lead Capture Automation",
+      "description": "Automated web forms, missed call text back setup, customer intake workflows, and notification systems.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "followup",
+      "icon": "refreshCw",
+      "name": "Follow Up Automation",
+      "description": "Automated follow ups, estimate reminders, customer communication workflows, and operational automations.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "reviews",
+      "icon": "star",
+      "name": "Review Management",
+      "description": "Automated Google review requests and customer follow-up workflows to build your online reputation.",
+      "price": "$1,000 – $2,000"
+    },
+    {
+      "id": "support",
+      "icon": "headphones",
+      "name": "Subscription Support",
+      "description": "Ongoing support, workflow adjustments, troubleshooting, software management, and optimization.",
+      "price": "$99 – $500 / mo"
+    }
+  ],
+  "alwaysIncluded": {
+    "kicker": "Always Included",
+    "title": "Every project starts on the right foot.",
+    "items": [
+      "Free initial consultation",
+      "Full onboarding & setup support",
+      "Dedicated point of contact",
+      "Clear project timeline",
+      "No long-term contracts required",
+      "Transparent, flat-rate pricing"
+    ]
+  },
+  "cta": {
+    "kicker": "Not Sure Where to Start?",
+    "title": "Let's figure it out together.",
+    "subtitle": "Book a free 30-minute consultation and we'll map out the right services for where your business is right now.",
+    "buttonText": "Book Free Consultation"
+  }
+}

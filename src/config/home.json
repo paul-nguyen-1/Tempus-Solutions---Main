@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "kicker": "HVAC · Roofing · Plumbing · Electrical · Landscaping · and more",
+    "title": "Modern technology for home services.",
+    "subtitle": "Tempus Solutions modernizes small and mid-sized service businesses with the tools they actually need: websites, CRMs, automations, and analytics, built and managed for you, with transparent flat-rate pricing.",
+    "primaryCta": "View Services & Pricing",
+    "secondaryCta": "Who We Serve"
+  },
+  "valueProps": [
+    {
+      "label": "Transparent Pricing",
+      "desc": "No hidden fees, no surprise invoices. You always know exactly what you pay."
+    },
+    {
+      "label": "À La Carte Services",
+      "desc": "Pay only for what you need. Start with one service and add more as you grow."
+    },
+    {
+      "label": "Built for Trades",
+      "desc": "Solutions designed around how home service businesses actually operate."
+    }
+  ],
+  "servicesSection": {
+    "kicker": "Services & Pricing",
+    "title": "Everything your business needs to modernize.",
+    "subtitle": "Pick the services that solve your biggest problems today. Add more as you grow. No bundles, no lock-in."
+  },
+  "industriesSection": {
+    "kicker": "Industries We Serve",
+    "title": "We know your industry.",
+    "subtitle": "Built around the realities of home service businesses, from scheduling pressure to lead management to seasonal swings."
+  },
+  "cta": {
+    "kicker": "Ready to Modernize?",
+    "title": "Let's talk about your business.",
+    "subtitle": "Get a free consultation and find out which services fit your current needs and your future goals.",
+    "buttonText": "Book a Free Consultation"
+  }
+}
