@@ -163,7 +163,7 @@ function HomePage() {
               return (
                 <article
                   key={industry.id}
-                  className="island-shell feature-card rise-in flex flex-col items-center gap-2.5 rounded-2xl px-3 py-5 text-center"
+                  className="island-shell feature-card rise-in flex flex-col items-center gap-2.5 rounded-2xl px-2 py-5 text-center"
                   style={{ animationDelay: `${i * 55 + 100}ms` }}
                 >
                   <div className="inline-flex rounded-xl border border-[rgba(180,83,9,0.2)] bg-[rgba(46,125,50,0.1)] p-2.5">
