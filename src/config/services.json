@@ -10,63 +10,135 @@
       "icon": "globe",
       "name": "Website Creation",
       "description": "Custom business website with mobile optimization, lead capture forms, and contact integration.",
-      "price": "$1,500 – $2,000"
+      "price": "$1,500 – $2,000",
+      "details": [
+        "Fully custom design matched to your brand",
+        "Mobile-first, responsive layout",
+        "Contact & lead capture forms built in",
+        "Google Maps and social media integration",
+        "Basic SEO setup and fast load times",
+        "Delivered with full ownership — no monthly platform fees"
+      ]
     },
     {
       "id": "email",
       "icon": "mail",
       "name": "Business Email",
       "description": "Microsoft 365 or Google Workspace setup with domain email configuration.",
-      "price": "$250 – $500"
+      "price": "$250 – $500",
+      "details": [
+        "Professional email addresses using your domain (you@yourbusiness.com)",
+        "Microsoft 365 or Google Workspace — your choice",
+        "Calendar, contacts, and cloud storage included",
+        "Team inbox and alias setup",
+        "Migration from personal email if needed",
+        "Security and spam filtering configured"
+      ]
     },
     {
       "id": "crm",
       "icon": "users",
       "name": "CRM Setup",
       "description": "CRM implementation, customer pipeline setup, lead tracking organization, and workflow onboarding.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "CRM platform selection and full account setup",
+        "Custom sales pipeline stages built to your process",
+        "Lead source tracking and contact tagging",
+        "Team onboarding and hands-on training",
+        "Integration with your website and email",
+        "Ongoing pipeline templates ready to use from day one"
+      ]
     },
     {
       "id": "scheduling",
       "icon": "calendar",
       "name": "Scheduling Implementation",
       "description": "Scheduling software setup, calendar syncing, automated reminders, dispatch workflow setup, and booking optimization.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "Scheduling platform setup and configuration",
+        "Two-way calendar sync with Google or Outlook",
+        "Automated appointment reminders via text and email",
+        "Online booking page embedded on your website",
+        "Dispatch and job assignment workflow",
+        "Buffer times, service durations, and availability rules"
+      ]
     },
     {
       "id": "analytics",
       "icon": "barChart",
       "name": "Dashboard Analytics",
       "description": "Custom business dashboards for leads, sales, jobs, reviews, and operational KPIs.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "Custom dashboard built around your key metrics",
+        "Lead volume, conversion rates, and sales tracking",
+        "Job completion and revenue reporting",
+        "Google review score and response monitoring",
+        "Connected to your existing tools (CRM, scheduling, etc.)",
+        "Simple daily/weekly snapshot views for busy owners"
+      ]
     },
     {
       "id": "lead-capture",
       "icon": "target",
       "name": "Lead Capture Automation",
       "description": "Automated web forms, missed call text back setup, customer intake workflows, and notification systems.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "Smart intake forms on your website",
+        "Missed call text-back so no lead goes cold",
+        "Instant notification to your phone or inbox",
+        "Auto-response messages for new inquiries",
+        "Lead routing to the right team member",
+        "All captured leads organized in your CRM automatically"
+      ]
     },
     {
       "id": "followup",
       "icon": "refreshCw",
       "name": "Follow Up Automation",
       "description": "Automated follow ups, estimate reminders, customer communication workflows, and operational automations.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "Automated follow-up sequences after estimates or jobs",
+        "Unpaid invoice and overdue reminders",
+        "Re-engagement campaigns for past customers",
+        "Personalized texts and emails sent automatically",
+        "Drip sequences to nurture leads over time",
+        "Fully customizable message templates"
+      ]
     },
     {
       "id": "reviews",
       "icon": "star",
       "name": "Review Management",
       "description": "Automated Google review requests and customer follow-up workflows to build your online reputation.",
-      "price": "$1,000 – $2,000"
+      "price": "$1,000 – $2,000",
+      "details": [
+        "Automated review request sent after job completion",
+        "Direct link to your Google Business profile",
+        "Negative feedback intercepted before going public",
+        "Review monitoring and alert notifications",
+        "Response templates to reply to reviews quickly",
+        "Monthly reputation summary report"
+      ]
     },
     {
       "id": "support",
       "icon": "headphones",
       "name": "Subscription Support",
       "description": "Ongoing support, workflow adjustments, troubleshooting, software management, and optimization.",
-      "price": "$99 – $500 / mo"
+      "price": "$99 – $500 / mo",
+      "details": [
+        "Dedicated point of contact for all your tech needs",
+        "Workflow updates and automation tweaks as you grow",
+        "Software troubleshooting and bug fixes",
+        "Monthly check-in to review performance",
+        "Priority response time for urgent issues",
+        "Proactive recommendations to improve your systems"
+      ]
     }
   ],
   "alwaysIncluded": {
