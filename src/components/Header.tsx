@@ -42,9 +42,9 @@ export default function Header() {
           <Link
             to="/contact"
             search={{ service: '' }}
-            className="hidden items-center rounded-full border border-[rgba(46,125,50,0.3)] bg-[rgba(46,125,50,0.1)] px-4 py-1.5 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(46,125,50,0.18)] lg:inline-flex"
+            className="hidden items-center rounded border-2 border-[rgba(46,125,50,0.5)] bg-transparent px-5 py-2 text-[0.9rem] font-semibold text-(--lagoon-deep) no-underline transition duration-200 hover:border-[rgba(46,125,50,0.9)] hover:bg-[rgba(46,125,50,0.06)] hover:shadow-[0_0_0_1px_rgba(46,125,50,0.25)] lg:inline-flex"
           >
-            Get in Touch
+            Get Started
           </Link>
 
           <button
