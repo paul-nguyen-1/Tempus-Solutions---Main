@@ -72,7 +72,9 @@ function IndustriesPage() {
                   to="/services"
                   className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(27,94,32,0.28)] bg-[rgba(46,125,50,0.1)] px-4 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(46,125,50,0.16)]"
                 >
-                  View Pricing <ArrowRight size={13} />
+                  <span className="sm:hidden">Pricing</span>
+                  <span className="hidden sm:inline">View Pricing</span>
+                  <ArrowRight size={13} />
                 </Link>
               </div>
             </article>
