@@ -2,22 +2,18 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import config from '../config/industries.json'
 import { INDUSTRY_ICONS } from '../config/icons'
-import { getConsultationMailto } from '../utils/mailto'
 
 export const Route = createFileRoute('/industries')({ component: IndustriesPage })
 
 function IndustriesPage() {
   return (
     <main className="page-wrap px-4 pb-20 pt-12">
-      <section className="island-shell rise-in relative overflow-hidden rounded-[2.5rem] px-6 py-14 sm:px-12 sm:py-18">
-        <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.22),transparent_66%)]" />
-        <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(180,83,9,0.14),transparent_66%)]" />
-
-        <p className="island-kicker relative mb-4">{config.hero.kicker}</p>
-        <h1 className="display-title relative mb-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-(--sea-ink) sm:text-5xl">
+      <section className="island-shell rise-in rounded-2xl px-6 py-14 sm:px-12 sm:py-18">
+        <p className="island-kicker mb-4">{config.hero.kicker}</p>
+        <h1 className="display-title mb-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-(--sea-ink) sm:text-5xl">
           {config.hero.title}
         </h1>
-        <p className="relative max-w-2xl text-base leading-7 text-(--sea-ink-soft) sm:text-lg">
+        <p className="max-w-2xl text-base leading-7 text-(--sea-ink-soft) sm:text-lg">
           {config.hero.subtitle}
         </p>
       </section>
@@ -74,7 +70,7 @@ function IndustriesPage() {
                 </div>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(180,83,9,0.28)] bg-[rgba(245,158,11,0.1)] px-4 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(245,158,11,0.16)]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(27,94,32,0.28)] bg-[rgba(46,125,50,0.1)] px-4 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(46,125,50,0.16)]"
                 >
                   View Pricing <ArrowRight size={13} />
                 </Link>
@@ -84,22 +80,21 @@ function IndustriesPage() {
         })}
       </section>
 
-      <section className="island-shell relative mt-10 overflow-hidden rounded-4xl px-6 py-12 text-center sm:px-12">
-        <div className="pointer-events-none absolute -left-16 -top-16 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.16),transparent_66%)]" />
-
-        <p className="island-kicker relative mb-3">{config.cta.kicker}</p>
-        <h2 className="display-title relative mb-4 text-2xl font-bold text-(--sea-ink) sm:text-3xl">
+      <section className="island-shell mt-10 rounded-2xl px-6 py-12 text-center sm:px-12">
+        <p className="island-kicker mb-3">{config.cta.kicker}</p>
+        <h2 className="display-title mb-4 text-2xl font-bold text-(--sea-ink) sm:text-3xl">
           {config.cta.title}
         </h2>
-        <p className="relative mx-auto mb-7 max-w-sm text-sm leading-6 text-(--sea-ink-soft)">
+        <p className="mx-auto mb-7 max-w-sm text-sm leading-6 text-(--sea-ink-soft)">
           {config.cta.subtitle}
         </p>
-        <a
-          href={getConsultationMailto()}
-          className="relative inline-flex items-center gap-2 rounded-full bg-[#b45309] px-8 py-3 text-sm font-bold text-white no-underline shadow-[0_10px_28px_rgba(180,83,9,0.35)] transition hover:-translate-y-0.5 hover:opacity-90"
+        <Link
+          to="/contact"
+          search={{ service: '' }}
+          className="inline-flex items-center gap-2 rounded-full bg-[#2e7d32] px-8 py-3 text-sm font-bold text-white no-underline shadow-[0_10px_28px_rgba(46,125,50,0.35)] transition hover:-translate-y-0.5 hover:opacity-90"
         >
           {config.cta.buttonText} <ArrowRight size={15} />
-        </a>
+        </Link>
       </section>
     </main>
   )

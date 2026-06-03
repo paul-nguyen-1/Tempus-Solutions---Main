@@ -24,8 +24,8 @@
         "icon": "target",
         "title": "Built for Your Industry",
         "desc": "We're not generalist IT consultants. We built Tempus around the trades such as HVAC, roofing, electrical, and plumbing, so we already understand your workflow before the first conversation.",
-        "accentBg": "rgba(245,158,11,0.1)",
-        "accentBorder": "rgba(180,83,9,0.22)"
+        "accentBg": "rgba(46,125,50,0.1)",
+        "accentBorder": "rgba(46,125,50,0.22)"
       },
       {
         "icon": "dollarSign",

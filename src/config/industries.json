@@ -24,8 +24,8 @@
         "Digital estimate tools for faster, professional quotes"
       ],
       "recommendedServices": "CRM Setup + Scheduling Implementation",
-      "accentBg": "rgba(245,158,11,0.08)",
-      "accentBorder": "rgba(180,83,9,0.2)"
+      "accentBg": "rgba(46,125,50,0.08)",
+      "accentBorder": "rgba(46,125,50,0.2)"
     },
     {
       "id": "roofing",
@@ -68,8 +68,8 @@
         "Automated appointment reminders to cut no-shows"
       ],
       "recommendedServices": "Website Creation + Business Email",
-      "accentBg": "rgba(245,158,11,0.07)",
-      "accentBorder": "rgba(180,83,9,0.18)"
+      "accentBg": "rgba(46,125,50,0.07)",
+      "accentBorder": "rgba(46,125,50,0.18)"
     },
     {
       "id": "plumbing",
@@ -90,8 +90,8 @@
         "Simple CRM your team will actually stick with"
       ],
       "recommendedServices": "Lead Capture Automation + CRM Setup",
-      "accentBg": "rgba(245,158,11,0.07)",
-      "accentBorder": "rgba(180,83,9,0.18)"
+      "accentBg": "rgba(46,125,50,0.07)",
+      "accentBorder": "rgba(46,125,50,0.18)"
     },
     {
       "id": "landscaping",
@@ -156,8 +156,8 @@
         "Automated estimate follow-up reminders"
       ],
       "recommendedServices": "Website Creation + Lead Capture Automation",
-      "accentBg": "rgba(245,158,11,0.07)",
-      "accentBorder": "rgba(180,83,9,0.18)"
+      "accentBg": "rgba(46,125,50,0.07)",
+      "accentBorder": "rgba(46,125,50,0.18)"
     },
     {
       "id": "garage-door",
@@ -178,8 +178,8 @@
         "Website with emergency service CTA and local SEO"
       ],
       "recommendedServices": "Lead Capture Automation + Scheduling Implementation",
-      "accentBg": "rgba(245,158,11,0.07)",
-      "accentBorder": "rgba(180,83,9,0.18)"
+      "accentBg": "rgba(46,125,50,0.07)",
+      "accentBorder": "rgba(46,125,50,0.18)"
     },
     {
       "id": "foundation",
