@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useState, type FormEvent } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
+import { sendContactEmail } from '#/utils/sendContactEmail'
 
 const EMAIL = 'info@tempussolutions.io'
 
@@ -54,52 +55,41 @@ function ContactPage() {
   const [challenge, setChallenge] = useState('')
   const [goals, setGoals] = useState('')
   const [contactPref, setContactPref] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const toggle = (s: string) =>
     setSelectedServices((prev) =>
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
     )
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    const serviceList = selectedServices.length
-      ? selectedServices.map((s) => `  • ${s}`).join('\n')
-      : '  Not sure yet – need guidance'
-
-    const subject = isQuote
-      ? `Quote Request – ${preselected} | Tempus Solutions`
-      : 'Consultation Request – Tempus Solutions'
-
-    const body = [
-      'Hi Tempus Team,',
-      '',
-      isQuote
-        ? `I'd like to get a quote for your ${preselected} service.`
-        : "I'd like to schedule a free consultation.",
-      '',
-      '─── My Information ───────────────────────',
-      `Name:               ${name}`,
-      `Business Name:      ${businessName}`,
-      `Email:              ${email}`,
-      `Phone Number:       ${phone || 'Not provided'}`,
-      `Industry / Trade:   ${industry || 'Not provided'}`,
-      '',
-      "─── Services I'm Interested In ───────────",
-      serviceList,
-      '',
-      '─── My Situation ─────────────────────────',
-      'Biggest challenge right now:',
-      challenge || 'Not provided',
-      '',
-      'Goals or questions:',
-      goals || 'Not provided',
-      '',
-      '─── Best Way to Reach Me ─────────────────',
-      `Preferred contact:  ${contactPref || 'Not provided'}`,
-    ].join('\n')
-
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    setSubmitting(true)
+    setError('')
+    try {
+      await sendContactEmail({
+        data: {
+          name,
+          businessName,
+          email,
+          phone,
+          industry,
+          selectedServices,
+          challenge,
+          goals,
+          contactPref,
+          isQuote,
+          preselected,
+        },
+      })
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -266,13 +256,31 @@ function ContactPage() {
             </div>
           </fieldset>
 
-          <button
-            type="submit"
-            className="inline-flex items-center gap-2 rounded-full bg-[#2e7d32] px-8 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:opacity-90"
-          >
-            {isQuote ? 'Request Quote' : 'Send Message'}{' '}
-            <ArrowRight size={15} />
-          </button>
+          {error && (
+            <p className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {error}
+            </p>
+          )}
+
+          {submitted ? (
+            <div className="flex items-center gap-3 rounded-xl border border-[rgba(46,125,50,0.3)] bg-[rgba(46,125,50,0.06)] px-5 py-4 text-sm font-semibold text-[#2e7d32]">
+              <CheckCircle size={18} />
+              Message sent! We'll be in touch within one business day.
+            </div>
+          ) : (
+            <button
+              type="submit"
+              disabled={submitting}
+              className="inline-flex items-center gap-2 rounded-full bg-[#2e7d32] px-8 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+            >
+              {submitting
+                ? 'Sending…'
+                : isQuote
+                  ? 'Request Quote'
+                  : 'Send Message'}{' '}
+              {!submitting && <ArrowRight size={15} />}
+            </button>
+          )}
         </form>
 
         <aside className="flex flex-col gap-4">
