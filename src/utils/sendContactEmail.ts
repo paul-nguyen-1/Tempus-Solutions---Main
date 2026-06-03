@@ -32,9 +32,10 @@ export const sendContactEmail = createServerFn({ method: 'POST' })
       ? data.selectedServices.map((s) => `  • ${s}`).join('\n')
       : '  Not sure yet – need guidance'
 
+    const timestamp = new Date().getTime()
     const subject = data.isQuote
-      ? `Quote Request – ${data.preselected} | Tempus Solutions`
-      : 'Consultation Request – Tempus Solutions'
+      ? `Quote Request – ${data.preselected} | Tempus Solutions [${timestamp}]`
+      : `Consultation Request – Tempus Solutions [${timestamp}]`
 
     const text = [
       'Hi Tempus Team,',
