@@ -63,17 +63,16 @@ function IndustriesPage() {
                 </ul>
               </div>
 
-              <div className="mt-auto flex items-center justify-between border-t border-(--line) pt-5">
-                <div>
+              <div className="mt-auto flex flex-col items-center gap-3 border-t border-(--line) pt-5 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+                <div className="text-center sm:text-left">
                   <p className="island-kicker mb-0.5">Recommended Services</p>
                   <p className="m-0 text-sm font-semibold text-(--sea-ink)">{industry.recommendedServices}</p>
                 </div>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(27,94,32,0.28)] bg-[rgba(46,125,50,0.1)] px-4 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(46,125,50,0.16)]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(27,94,32,0.28)] bg-[rgba(46,125,50,0.1)] px-3 py-2 text-sm font-semibold text-(--lagoon-deep) no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(46,125,50,0.16)]"
                 >
-                  <span className="sm:hidden">$</span>
-                  <span className="hidden sm:inline">View Pricing</span>
+                  <span>View Pricing</span>
                   <ArrowRight size={13} />
                 </Link>
               </div>
