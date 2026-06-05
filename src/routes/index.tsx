@@ -39,12 +39,11 @@ function HomePage() {
           muted
           loop
           playsInline
-          poster="/cta_video.png"
+          poster="/cta_vsoideo.png"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
         >
           <source src="/cta_video.webm" type="video/webm" />
-          <source src="/cta_video.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0"
