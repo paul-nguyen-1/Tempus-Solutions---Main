@@ -30,7 +30,10 @@ function HomePage() {
     homeConfig
   return (
     <main className="pb-20">
-      <section className="relative overflow-hidden" style={{ minHeight: '680px' }}>
+      <section
+        className="relative overflow-hidden"
+        style={{ minHeight: '680px' }}
+      >
         <video
           autoPlay
           muted
@@ -40,7 +43,7 @@ function HomePage() {
           poster="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80"
           aria-hidden="true"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/cta_video.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0"
