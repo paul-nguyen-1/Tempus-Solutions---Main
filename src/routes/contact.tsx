@@ -6,8 +6,7 @@ import { sendContactEmail } from '#/utils/sendContactEmail'
 
 const EMAIL = 'info@tempussolutions.io'
 const COOKIE_NAME = 'contactFormData'
-const COOKIE_CONSENT_NAME = 'contactFormCookieConsent'
-const SESSION_CONSENT_KEY = 'siteCookieConsent'
+const CONSENT_KEY = 'siteCookieConsent'
 
 const getCookie = (name: string) => {
   if (typeof document === 'undefined') return ''
@@ -121,7 +120,7 @@ function ContactPage() {
 
     // Read session-only consent set by the site-wide consent modal.
     try {
-      const s = typeof window !== 'undefined' ? sessionStorage.getItem(SESSION_CONSENT_KEY) : null
+      const s = typeof window !== 'undefined' ? localStorage.getItem(CONSENT_KEY) : null
       if (s === '1') setCookieConsent(true)
       else if (s === '0') setCookieConsent(false)
       else setCookieConsent(null)
