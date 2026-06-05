@@ -31,7 +31,10 @@ function HomePage() {
     homeConfig
   const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => {
-    videoRef.current?.play().catch(() => {})
+    const video = videoRef.current
+    if (!video) return
+    video.muted = true
+    video.play().catch(() => {})
   }, [])
   return (
     <main className="pb-20">
