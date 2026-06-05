@@ -39,8 +39,9 @@ function HomePage() {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/cta_video.png"
           className="absolute inset-0 h-full w-full object-cover"
-          poster="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80"
           aria-hidden="true"
         >
           <source src="/cta_video.mp4" type="video/mp4" />
