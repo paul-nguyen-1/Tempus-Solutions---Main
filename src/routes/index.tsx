@@ -39,7 +39,6 @@ function HomePage() {
           muted
           loop
           playsInline
-          preload="auto"
           poster="/cta_video.png"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
