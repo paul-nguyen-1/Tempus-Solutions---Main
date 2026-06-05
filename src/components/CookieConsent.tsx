@@ -20,26 +20,36 @@ const setConsent = (value: '1' | '0') => {
 }
 
 export default function CookieConsent() {
-  const [show, setShow] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const consent = getConsent()
-    if (consent === '1' || consent === '0') {
-      setShow(false)
-    } else {
-      setShow(true)
+    const openBanner = () => {
+      setMounted(true)
+      requestAnimationFrame(() => setVisible(true))
     }
 
-    const handleOpen = () => setShow(true)
+    if (consent !== '1' && consent !== '0') {
+      openBanner()
+    }
+
+    const handleOpen = () => openBanner()
     window.addEventListener('open-cookie-settings', handleOpen)
 
     return () => window.removeEventListener('open-cookie-settings', handleOpen)
   }, [])
 
-  if (!show) return null
+  const closeBanner = (saveValue: '1' | '0') => {
+    setConsent(saveValue)
+    setVisible(false)
+    window.setTimeout(() => setMounted(false), 240)
+  }
+
+  if (!mounted) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1a1a1a] text-white p-3 sm:p-6 shadow-[0_-10px_30px_rgba(0,0,0,0.3)]">
+    <div className={`fixed bottom-0 left-0 right-0 z-50 bg-[#1a1a1a] text-white p-3 sm:p-6 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] transform transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
       <div className="page-wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
         <div className="flex items-start gap-3 sm:gap-4 flex-1">
           <div className="flex-shrink-0 mt-0.5">
@@ -64,22 +74,16 @@ export default function CookieConsent() {
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 w-full sm:w-auto">
           <button
             type="button"
-            onClick={() => {
-              setConsent('0')
-              setShow(false)
-            }}
-            className="flex-1 sm:flex-none inline-flex items-center justify-center rounded border border-gray-400 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white hover:border-gray-300 hover:bg-gray-800 transition"
+            onClick={() => closeBanner('0')}
+            className="cursor-pointer flex-1 sm:flex-none inline-flex items-center justify-center rounded border border-gray-400 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white hover:border-gray-300 hover:bg-gray-800 transition"
           >
             Reject
           </button>
 
           <button
             type="button"
-            onClick={() => {
-              setConsent('1')
-              setShow(false)
-            }}
-            className="flex-1 sm:flex-none inline-flex items-center justify-center rounded bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-[#1a1a1a] hover:bg-gray-100 transition"
+            onClick={() => closeBanner('1')}
+            className="cursor-pointer flex-1 sm:flex-none inline-flex items-center justify-center rounded bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-[#1a1a1a] hover:bg-gray-100 transition"
           >
             Accept
           </button>

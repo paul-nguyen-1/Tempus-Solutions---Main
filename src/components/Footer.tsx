@@ -43,7 +43,7 @@ export default function Footer() {
                   <button
                     type="button"
                     onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
-                    className="text-(--sea-ink-soft) no-underline transition hover:text-(--sea-ink)"
+                    className="cursor-pointer text-(--sea-ink-soft) no-underline transition hover:text-(--sea-ink)"
                   >
                     Cookie Settings
                   </button>
