@@ -102,30 +102,33 @@ function ContactPage() {
     )
 
   useEffect(() => {
-    const savedData = parseFormCookie()
-    if (savedData) {
-      if (typeof savedData.name === 'string') setName(savedData.name)
-      if (typeof savedData.businessName === 'string') setBusinessName(savedData.businessName)
-      if (typeof savedData.email === 'string') setEmail(savedData.email)
-      if (typeof savedData.phone === 'string') setPhone(savedData.phone)
-      if (typeof savedData.industry === 'string') setIndustry(savedData.industry)
-      if (Array.isArray(savedData.selectedServices)) {
-        const services = savedData.selectedServices as string[]
-        setSelectedServices(preselected && !services.includes(preselected) ? [...services, preselected] : services)
-      }
-      if (typeof savedData.challenge === 'string') setChallenge(savedData.challenge)
-      if (typeof savedData.goals === 'string') setGoals(savedData.goals)
-      if (typeof savedData.contactPref === 'string') setContactPref(savedData.contactPref)
-    }
-
-    // Read session-only consent set by the site-wide consent modal.
+    let consent: boolean | null = null
     try {
       const s = typeof window !== 'undefined' ? localStorage.getItem(CONSENT_KEY) : null
-      if (s === '1') setCookieConsent(true)
-      else if (s === '0') setCookieConsent(false)
-      else setCookieConsent(null)
-    } catch {
-      setCookieConsent(null)
+      if (s === '1') consent = true
+      else if (s === '0') consent = false
+    } catch {}
+
+    setCookieConsent(consent)
+
+    if (consent === true) {
+      const savedData = parseFormCookie()
+      if (savedData) {
+        if (typeof savedData.name === 'string') setName(savedData.name)
+        if (typeof savedData.businessName === 'string') setBusinessName(savedData.businessName)
+        if (typeof savedData.email === 'string') setEmail(savedData.email)
+        if (typeof savedData.phone === 'string') setPhone(savedData.phone)
+        if (typeof savedData.industry === 'string') setIndustry(savedData.industry)
+        if (Array.isArray(savedData.selectedServices)) {
+          const services = savedData.selectedServices as string[]
+          setSelectedServices(preselected && !services.includes(preselected) ? [...services, preselected] : services)
+        }
+        if (typeof savedData.challenge === 'string') setChallenge(savedData.challenge)
+        if (typeof savedData.goals === 'string') setGoals(savedData.goals)
+        if (typeof savedData.contactPref === 'string') setContactPref(savedData.contactPref)
+      }
+    } else {
+      deleteCookie(COOKIE_NAME)
     }
 
     setCookieLoaded(true)
