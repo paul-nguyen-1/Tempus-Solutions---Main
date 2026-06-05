@@ -34,7 +34,16 @@ function HomePage() {
     const video = videoRef.current
     if (!video) return
     video.muted = true
-    video.play().catch(() => {})
+    const tryPlay = () => {
+      video.muted = true
+      video.play().catch(() => {})
+    }
+    if (video.readyState >= 2) {
+      tryPlay()
+    } else {
+      video.addEventListener('loadeddata', tryPlay, { once: true })
+    }
+    return () => video.removeEventListener('loadeddata', tryPlay)
   }, [])
   return (
     <main className="pb-20">
@@ -48,6 +57,7 @@ function HomePage() {
           muted
           loop
           playsInline
+          preload="auto"
           poster="/cta_video.png"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
