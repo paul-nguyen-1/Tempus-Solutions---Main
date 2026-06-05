@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import homeConfig from '../config/home.json'
 import servicesConfig from '../config/services.json'
@@ -28,6 +29,10 @@ const SUPPORT_ACCENT = {
 function HomePage() {
   const { hero, valueProps, servicesSection, industriesSection, cta } =
     homeConfig
+  const videoRef = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
   return (
     <main className="pb-20">
       <section
@@ -35,14 +40,16 @@ function HomePage() {
         style={{ minHeight: '680px' }}
       >
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          poster="/cta_vsoideo.png"
+          poster="/cta_video.png"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
         >
+          <source src="/cta_video.mp4" type="video/mp4" />
           <source src="/cta_video.webm" type="video/webm" />
         </video>
         <div
