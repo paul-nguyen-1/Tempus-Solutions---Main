@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useRef } from 'react'
+import { useCallback } from 'react'
 import { ArrowRight } from 'lucide-react'
 import homeConfig from '../config/home.json'
 import servicesConfig from '../config/services.json'
@@ -29,21 +29,18 @@ const SUPPORT_ACCENT = {
 function HomePage() {
   const { hero, valueProps, servicesSection, industriesSection, cta } =
     homeConfig
-  const videoRef = useRef<HTMLVideoElement>(null)
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    video.muted = true
+  const videoCallbackRef = useCallback((node: HTMLVideoElement | null) => {
+    if (!node) return
+    node.muted = true
     const tryPlay = () => {
-      video.muted = true
-      video.play().catch(() => {})
+      node.muted = true
+      node.play().catch(() => {})
     }
-    if (video.readyState >= 2) {
+    if (node.readyState >= 2) {
       tryPlay()
     } else {
-      video.addEventListener('loadeddata', tryPlay, { once: true })
+      node.addEventListener('canplay', tryPlay, { once: true })
     }
-    return () => video.removeEventListener('loadeddata', tryPlay)
   }, [])
   return (
     <main className="pb-20">
@@ -52,7 +49,7 @@ function HomePage() {
         style={{ minHeight: '680px' }}
       >
         <video
-          ref={videoRef}
+          ref={videoCallbackRef}
           autoPlay
           muted
           loop
