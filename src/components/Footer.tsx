@@ -39,6 +39,15 @@ export default function Footer() {
                     About
                   </Link>
                 </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new Event('open-cookie-settings'))}
+                    className="text-(--sea-ink-soft) no-underline transition hover:text-(--sea-ink)"
+                  >
+                    Cookie Settings
+                  </button>
+                </li>
               </ul>
             </nav>
 
@@ -70,12 +79,26 @@ export default function Footer() {
           <p className="m-0">
             &copy; {year} Tempus Solutions. All rights reserved.
           </p>
-          <a
-            href="mailto:info@tempussolutions.io"
-            className="text-(--lagoon-deep) no-underline hover:underline"
-          >
-            info@tempussolutions.io
-          </a>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/privacy"
+              className="text-(--sea-ink-soft) no-underline transition hover:text-(--sea-ink)"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms"
+              className="text-(--sea-ink-soft) no-underline transition hover:text-(--sea-ink)"
+            >
+              Terms & Conditions
+            </Link>
+            <a
+              href="mailto:info@tempussolutions.io"
+              className="text-(--lagoon-deep) no-underline hover:underline"
+            >
+              info@tempussolutions.io
+            </a>
+          </div>
         </div>
       </div>
     </footer>

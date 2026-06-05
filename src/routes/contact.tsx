@@ -1,9 +1,45 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import type { FormEvent } from 'react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import { sendContactEmail } from '#/utils/sendContactEmail'
 
 const EMAIL = 'info@tempussolutions.io'
+const COOKIE_NAME = 'contactFormData'
+const COOKIE_CONSENT_NAME = 'contactFormCookieConsent'
+const SESSION_CONSENT_KEY = 'siteCookieConsent'
+
+const getCookie = (name: string) => {
+  if (typeof document === 'undefined') return ''
+  return document.cookie
+    .split('; ')
+    .find((cookie) => cookie.startsWith(`${name}=`))
+    ?.split('=')[1] ?? ''
+}
+
+const setCookie = (name: string, value: string, maxAgeSeconds = 60 * 60 * 24 * 365) => {
+  if (typeof document === 'undefined') return
+  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAgeSeconds}; Secure; SameSite=Lax`
+}
+
+const deleteCookie = (name: string) => {
+  if (typeof document === 'undefined') return
+  document.cookie = `${name}=; path=/; max-age=0; Secure; SameSite=Lax`
+}
+
+const parseFormCookie = () => {
+  const raw = getCookie(COOKIE_NAME)
+  if (!raw) return null
+  try {
+    return JSON.parse(decodeURIComponent(raw)) as Record<string, unknown>
+  } catch {
+    return null
+  }
+}
+
+const saveFormCookie = (data: Record<string, unknown>) => {
+  setCookie(COOKIE_NAME, JSON.stringify(data))
+}
 
 const SERVICES = [
   'Website Creation',
@@ -58,13 +94,60 @@ function ContactPage() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [cookieConsent, setCookieConsent] = useState<boolean | null>(null)
+  const [cookieLoaded, setCookieLoaded] = useState(false)
 
   const toggle = (s: string) =>
     setSelectedServices((prev) =>
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
     )
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    const savedData = parseFormCookie()
+    if (savedData) {
+      if (typeof savedData.name === 'string') setName(savedData.name)
+      if (typeof savedData.businessName === 'string') setBusinessName(savedData.businessName)
+      if (typeof savedData.email === 'string') setEmail(savedData.email)
+      if (typeof savedData.phone === 'string') setPhone(savedData.phone)
+      if (typeof savedData.industry === 'string') setIndustry(savedData.industry)
+      if (Array.isArray(savedData.selectedServices)) {
+        const services = savedData.selectedServices as string[]
+        setSelectedServices(preselected && !services.includes(preselected) ? [...services, preselected] : services)
+      }
+      if (typeof savedData.challenge === 'string') setChallenge(savedData.challenge)
+      if (typeof savedData.goals === 'string') setGoals(savedData.goals)
+      if (typeof savedData.contactPref === 'string') setContactPref(savedData.contactPref)
+    }
+
+    // Read session-only consent set by the site-wide consent modal.
+    try {
+      const s = typeof window !== 'undefined' ? sessionStorage.getItem(SESSION_CONSENT_KEY) : null
+      if (s === '1') setCookieConsent(true)
+      else if (s === '0') setCookieConsent(false)
+      else setCookieConsent(null)
+    } catch {
+      setCookieConsent(null)
+    }
+
+    setCookieLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (!cookieLoaded || cookieConsent !== true) return
+    saveFormCookie({
+      name,
+      businessName,
+      email,
+      phone,
+      industry,
+      selectedServices,
+      challenge,
+      goals,
+      contactPref,
+    })
+  }, [cookieConsent, cookieLoaded, name, businessName, email, phone, industry, selectedServices, challenge, goals, contactPref])
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
     setError('')
@@ -268,18 +351,41 @@ function ContactPage() {
               Message sent! We'll be in touch within one business day.
             </div>
           ) : (
-            <button
-              type="submit"
-              disabled={submitting}
-              className="inline-flex items-center gap-2 rounded-full bg-[#2e7d32] px-8 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
-            >
-              {submitting
-                ? 'Sending…'
-                : isQuote
-                  ? 'Request Quote'
-                  : 'Send Message'}{' '}
-              {!submitting && <ArrowRight size={15} />}
-            </button>
+            <div className="space-y-4">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 rounded-full bg-[#2e7d32] px-8 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+              >
+                {submitting
+                  ? 'Sending…'
+                  : isQuote
+                    ? 'Request Quote'
+                    : 'Send Message'}{' '}
+                {!submitting && <ArrowRight size={15} />}
+              </button>
+
+              {cookieConsent === true && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    deleteCookie(COOKIE_NAME)
+                    setName('')
+                    setBusinessName('')
+                    setEmail('')
+                    setPhone('')
+                    setIndustry('')
+                    setSelectedServices(preselected ? [preselected] : [])
+                    setChallenge('')
+                    setGoals('')
+                    setContactPref('')
+                  }}
+                  className="inline-flex items-center justify-center rounded-full border border-(--line) bg-transparent px-6 py-3 text-sm font-semibold text-(--sea-ink) transition hover:bg-[rgba(46,125,50,0.06)]"
+                >
+                  Clear saved form data
+                </button>
+              )}
+            </div>
           )}
         </form>
 
@@ -336,6 +442,8 @@ function ContactPage() {
           )}
         </aside>
       </div>
+
+      {/* Cookie consent is handled site-wide by src/components/CookieConsent.tsx */}
     </main>
   )
 }
